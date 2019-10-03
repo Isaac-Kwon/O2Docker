@@ -14,6 +14,10 @@ RUN git clone https://github.com/alisw/alidist.git alidist;\
     git clone https://github.com/alisw/alibuild.git alibuild;\
     git clone https://github.com/AliceO2Group/AliceO2.git O2;
 
+RUN alibuild/aliBuild build GEANT4 -j12 --debug && alibuild/aliBuild clean
+RUN alibuild/aliBuild build ROOT -j12 --debug && alibuild/aliBuild clean
+RUN alibuild/aliBuild build HepMC -j12 --debug && alibuild/aliBuild clean
+RUN alibuild/aliBuild build FairRoot -j12 --debug && alibuild/aliBuild clean
 RUN alibuild/aliBuild build O2 --defaults o2 -j12 --debug && alibuild/aliBuild clean
 
 WORKDIR /data/
