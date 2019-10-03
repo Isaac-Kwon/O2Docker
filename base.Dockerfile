@@ -28,8 +28,11 @@ RUN pip install matplotlib==2.0.2 numpy certifi ipython==5.1.0 ipywidgets ipyker
 
 RUN mkdir -p /data/workdir
 
-ENV PATH $PATH:/data/sw/alice/alibuild/
+ENV PATH $PATH:/data/alice/alibuild/
 ENV USER_DIR /data/workdir/
 ENV ALIBUILD_WORK_DIR /data/alice/sw/
+ENV HOME /data/
+
+WORKDIR /data/
 
 ENTRYPOINT /bin/bash --init-file /etc/bashrc

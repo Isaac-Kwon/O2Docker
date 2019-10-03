@@ -16,4 +16,6 @@ RUN git clone https://github.com/alisw/alidist.git alidist;\
 
 RUN alibuild/aliBuild build O2 --defaults o2 -j12 --debug && alibuild/aliBuild clean
 
+WORKDIR /data/
+
 ENTRYPOINT /bin/bash --init-file /etc/bashrc
