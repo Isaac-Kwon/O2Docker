@@ -1,0 +1,14 @@
+name: Docker Image CI
+on:
+  schedule:
+    - cron : "0 2 * * *"
+jobs:
+  build:
+    runs-on: ubuntu-latest 
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the Docker image
+      run: |
+       docker build -t isaackwon/o2docker:base-latest --file base.Dockerfile .
+       docker build -t isaackwon/o2docker:o2-latest -c10 --file O2.Dockerfile .
+       
