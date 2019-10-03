@@ -1,0 +1,12 @@
+name: Docker Image CI - push
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest 
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build Base Docker image
+      run: docker build -t isaackwon/o2docker:base-latest --file base.Dockerfile .
+    - name: Build O2 Docker image
+      run: docker build -t isaackwon/o2docker:o2-latest -c10 --file O2.Dockerfile .
+       
